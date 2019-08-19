@@ -1,0 +1,20 @@
+version: "3"
+services:
+  sapanboon-fe:
+    image: ghost
+    container_name: blog.tumit.gq
+    restart: always
+    ports:
+      - 2368:2368
+    environment:
+      VIRTUAL_HOST: blog.tumit.gq
+      VIRTUAL_PORT: 2368
+      LETSENCRYPT_HOST: blog.tumit.gq
+      LETSENCRYPT_EMAIL: tumit@live.com
+    expose:
+      - 2368
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
